@@ -34,36 +34,65 @@
 
 ---
 
-## 🚀 Features
+## 🎮 Commands
 
-### 🎯 LuckPerms Integration
+### NameSystem Commands
 
-The plugin automatically reads prefixes, suffixes, and group weights from LuckPerms. No manual configuration needed!
+#### Display Server Information
+**Aliases:** `/serverinfo`, `/si`  
+**Description:** Displays server information including name, IP, version, and more  
+**Permission:** None required
 
-**Example LuckPerms commands:**
-Create a new group
+---
+
+### LuckPerms Setup Commands
+
+#### Create Groups
+Create Owner group
+/lp creategroup owner
+/lp group owner meta setweight 1000
+/lp group owner
+
+Create Admin group
 /lp creategroup admin
+/lp group admin meta setweight 900
+/lp group ad
 
-Set a prefix for the group
-/lp group admin meta setprefix "&c[ADMIN] &c"
+Create Moderator group
+/lp creategroup moderator
+/lp group moderator meta setweight 800
+/lp group
 
-Set a suffix for the group (optional)
-/lp group admin meta setsuffix " &7★"
+Create VIP group
+/lp creategroup vip
+/lp group vip meta setweight 500
+/lp gr
 
-Set group weight (for sorting in TabList - higher = top)
-/lp group admin meta setweight 100
+Create Default group
+/lp creategroup default
+/lp group default meta setweight 0
+/lp
 
-Give permissions to the group
-/lp group admin permission set minecraft.command.gamemode
+#### Assign Players to Groups
+Set player's primary group
+/lp user <player> parent set <group>
 
-Assign a player to a group
-/lp user PlayerName parent set admin
+Add secondary group
+/lp user <player> parent add <group>
 
-Add a secondary group to a player
-/lp user PlayerName parent add vip
+Remove group from player
+/lp user <player> parent remove <group>
 
-Remove a player from a group
-/lp user PlayerName parent remove admin
 
-View a player's groups
-/lp user PlayerName info
+#### View Information
+View player information
+/lp user <player> info
+
+View group information
+/lp group <group> info
+
+View all groups
+/lp listgroups
+
+Open web editor (recommended for advanced configuration)
+/lp editor
